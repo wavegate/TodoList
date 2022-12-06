@@ -1,4 +1,13 @@
-.CurvedBlock__after::after {
+.CurvedBlock:nth-child(1) {
+  position: fixed;
+  width: 100%;
+}
+
+.CurvedBlock:nth-child(2) {
+  padding-top: 40%;
+}
+
+.CurvedBlock:not(:nth-last-child(-n + 2))::after {
   content: "";
   width: 80px;
   height: 80px;
@@ -10,7 +19,7 @@
   mask-size: contain;
 }
 
-.CurvedBlock__before::before {
+.CurvedBlock::before {
   content: "";
   width: 80px;
   height: 80px;
