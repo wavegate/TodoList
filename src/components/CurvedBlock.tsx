@@ -10,7 +10,6 @@ const CurvedBlock = ({
   padding: string;
   color: string;
   zIndex?: number;
-
   children: ReactNode;
 }) => {
   return (
