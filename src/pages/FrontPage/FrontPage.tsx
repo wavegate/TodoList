@@ -1,8 +1,8 @@
 import AddNewButton from "../../components/AddNewButton";
-import HeadingBlock from "./HeadingBlock";
+import HeroBlock from "./HeroBlock";
 import TaskListBlock from "./TaskListBlock";
 import { faker } from "@faker-js/faker";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Task = {
   name: string;
@@ -30,12 +30,14 @@ const FrontPage = () => {
         number: faker.datatype.number(50),
       },
     ]);
+  };
+
+  useEffect(() => {
     lastBlock.current?.scrollIntoView({
       behavior: "smooth",
-      block: "end",
-      inline: "nearest",
+      block: "start",
     });
-  };
+  }, [tasks]);
 
   return (
     <>
@@ -44,7 +46,7 @@ const FrontPage = () => {
           colors[(tasks.length - 1) % colors.length]
         } relative`}
       >
-        <HeadingBlock padding={padding} />
+        <HeroBlock padding={padding} />
         {tasks.map((task, index) => {
           return (
             <TaskListBlock
@@ -53,6 +55,7 @@ const FrontPage = () => {
               color={colors[index % colors.length]}
               name={task.name}
               number={task.number}
+              last={index === tasks.length - 1}
               key={index}
             />
           );

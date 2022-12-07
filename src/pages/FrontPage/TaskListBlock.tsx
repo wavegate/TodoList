@@ -8,19 +8,19 @@ const TaskListBlock = ({
   color,
   name,
   number,
+  last,
 }: {
   padding: string;
   zIndex: number;
   color: string;
   name: string;
   number: number;
+  last?: boolean;
 }) => {
   return (
     <>
-      <CurvedBlock color={color} padding={padding} zIndex={zIndex}>
-        <div
-          className={`h-16 flex justify-end items-center ${styles.TaskListBlock}`}
-        >
+      <CurvedBlock color={color} padding={padding} zIndex={zIndex} last={last}>
+        <div className={`h-16 flex justify-end items-center`}>
           <div
             className={`grid grid-cols-[auto_auto] gap-12 text-2xl font-semibold text-white`}
           >

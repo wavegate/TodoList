@@ -4,7 +4,7 @@ const HeadingBlock = ({ padding }: { padding: string }) => {
   return (
     <>
       <CurvedBlock padding={padding} color="bg-black" zIndex={1000}>
-        <div className={`h-[33vh] flex flex-col justify-between`}>
+        <div className={`h-[12vh] flex flex-col justify-between`}>
           <div className="flex flex-col gap-1">
             <div className="w-8 h-1 bg-white" />
             <div className="w-8 h-1 bg-white" />
