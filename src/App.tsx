@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FrontPage from "./pages/FrontPage/FrontPage";
+import TaskListPage from "./pages/TaskListPage/TaskListPage";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<FrontPage />}></Route>
+          <Route path="/tasks/:id" element={<TaskListPage />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
