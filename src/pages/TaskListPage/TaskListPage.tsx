@@ -6,7 +6,7 @@ const TaskListPage = () => {
   const padding = "p-8";
   return (
     <>
-      <div className={`min-h-screen flex flex-col`}>
+      <div className={`min-h-screen flex flex-col bg-black`}>
         <HeadingBlock padding={padding} />
         <TodosBlock padding={padding} />
         <FooterBlock padding={padding} />

@@ -17,8 +17,8 @@ const CurvedBlock = ({
   color: string;
   zIndex?: number;
   fixed?: boolean;
-  last?: boolean;
   first?: boolean;
+  last?: boolean;
   id?: string;
   flex?: boolean;
   children: ReactNode;
@@ -35,11 +35,9 @@ const CurvedBlock = ({
     <>
       <div
         onClick={handleClick}
-        className={`${color} ${
-          last ? `${padding} pb-36` : padding
-        } rounded-br-[80px] ${styles.CurvedBlock} ${
+        className={`${color} rounded-br-[80px] ${styles.CurvedBlock} ${
           fixed ? "fixed w-full" : "relative"
-        } ${last ? styles.CurvedBlock__last : ""} ${
+        } ${last ? `after:content-none` : ``} ${
           first ? `${padding} pt-[43vh]` : padding
         } ${flex ? `flex-grow` : ""}`}
         style={{ zIndex: zIndex }}

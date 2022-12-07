@@ -27,11 +27,15 @@ const TaskListBlock = ({
         color={color}
         padding={padding}
         zIndex={zIndex}
-        last={last}
         first={first}
+        last={last}
         id={id}
       >
-        <div className={`h-16 flex justify-end items-center`}>
+        <div
+          className={`h-16 flex justify-end items-center ${
+            last ? `${padding} pb-36` : padding
+          }`}
+        >
           <div
             className={`grid grid-cols-[auto_auto] gap-12 text-2xl font-semibold text-white`}
           >

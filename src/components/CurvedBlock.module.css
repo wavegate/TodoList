@@ -11,10 +11,6 @@
   pointer-events: none;
 }
 
-.CurvedBlock__last::after {
-  content: none;
-}
-
 .CurvedBlock::before {
   content: "";
   width: 80px;
