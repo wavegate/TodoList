@@ -18,7 +18,7 @@ const CurvedBlock = ({
 
   const handleClick = () => {
     if (id) {
-      navigate(`/tasks/${id}`);
+      navigate(`/read/${id}`);
     }
   };
 
@@ -30,7 +30,6 @@ const CurvedBlock = ({
           `relative rounded-br-[80px] ${styles.CurvedBlock}`,
           className
         )}
-        // } ${flex ? `flex-grow` : ""}`}
         style={{ zIndex: zIndex }}
       >
         {children}

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import AddNewButton from "../../components/AddNewButton";
 import CurvedBlock from "../../components/CurvedBlock";
@@ -5,6 +6,12 @@ import OtherList from "./components/OtherList";
 import styles from "./FooterBlock.module.css";
 
 const FooterBlock = ({ className }: { className?: string }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/create");
+  };
+
   return (
     <>
       <CurvedBlock
@@ -13,7 +20,7 @@ const FooterBlock = ({ className }: { className?: string }) => {
         <div className={`text-white flex justify-between items-center mb-6`}>
           <div className={`text-2xl font-medium`}>My List</div>
           <AddNewButton
-            onClick={() => console.log("button pressed.")}
+            onClick={handleClick}
             className={`h-10 w-10 bg-neutral-700 font-light text-3xl`}
           />
         </div>
