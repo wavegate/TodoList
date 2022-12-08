@@ -1,0 +1,20 @@
+.OtherLists::-webkit-scrollbar {
+  height: 12px;
+}
+
+/* Track */
+.OtherLists::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 12px;
+}
+
+/* Handle */
+.OtherLists::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+.OtherLists::-webkit-scrollbar-thumb:hover {
+  background: #6b21a8;
+}

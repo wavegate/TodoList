@@ -2,6 +2,7 @@ import { twMerge } from "tailwind-merge";
 import AddNewButton from "../../components/AddNewButton";
 import CurvedBlock from "../../components/CurvedBlock";
 import OtherList from "./components/OtherList";
+import styles from "./FooterBlock.module.css";
 
 const FooterBlock = ({ className }: { className?: string }) => {
   return (
@@ -16,7 +17,13 @@ const FooterBlock = ({ className }: { className?: string }) => {
             className={`h-10 w-10 bg-neutral-700 font-light text-3xl`}
           />
         </div>
-        <div className={`flex gap-8`}>
+        <div
+          className={`flex gap-8 overflow-x-scroll pb-8 ${styles.OtherLists}`}
+        >
+          <OtherList />
+          <OtherList />
+          <OtherList />
+          <OtherList />
           <OtherList />
           <OtherList />
           <OtherList />
