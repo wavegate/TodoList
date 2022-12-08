@@ -27,7 +27,9 @@ const CurvedBlock = ({
       <div
         onClick={handleClick}
         className={twMerge(
-          `relative rounded-br-[80px] ${styles.CurvedBlock}`,
+          `relative rounded-br-[80px] ${styles.CurvedBlock} ${
+            id ? `hover:cursor-pointer` : ""
+          }`,
           className
         )}
         style={{ zIndex: zIndex }}

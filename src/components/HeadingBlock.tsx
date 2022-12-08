@@ -22,7 +22,7 @@ const HeadingBlock = ({
     <>
       <CurvedBlock
         className={twMerge(
-          `bg-black rounded-br-[40px] after:w-[40px] after:h-[40px] drop-shadow-[0px_0px_16px_rgba(0,0,0,0.6)]`,
+          `bg-black rounded-br-[40px] after:w-[40px] after:h-[40px] drop-shadow-[0px_0px_16px_rgba(0,0,0,0.6)] after:drop-shadow-[0px_0px_16px_rgba(0,0,0,0.6)]`,
           className
         )}
         zIndex={1000}
@@ -45,8 +45,8 @@ const HeadingBlock = ({
               onClick={goBack}
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M6 18L18 6M6 6l12 12"
               />
             </svg>

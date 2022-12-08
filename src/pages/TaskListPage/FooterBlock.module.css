@@ -10,11 +10,11 @@
 
 /* Handle */
 .OtherLists::-webkit-scrollbar-thumb {
-  background: #555;
+  background: #6b21a8;
   border-radius: 12px;
 }
 
-/* Handle on hover */
+/* Handle on hover
 .OtherLists::-webkit-scrollbar-thumb:hover {
   background: #6b21a8;
-}
+} */

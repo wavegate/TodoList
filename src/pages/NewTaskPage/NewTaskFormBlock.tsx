@@ -21,7 +21,7 @@ const NewTaskFormBlock = ({ className }: { className?: string }) => {
             {...register("description")}
             className={`bg-black border-b border-white`}
           />
-          <div className={`flex gap-4 mt-8`}>
+          <div className={`flex gap-4 mt-8 items-center`}>
             <label htmlFor="datetime" className={`flex-1`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ const NewTaskFormBlock = ({ className }: { className?: string }) => {
               className={`flex-[90%] bg-black`}
             />
           </div>
-          <div className={`flex gap-4`}>
+          <div className={`flex gap-4 items-center`}>
             <label htmlFor="description" className={`flex-1`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
