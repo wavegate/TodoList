@@ -16,7 +16,11 @@ const FooterBlock = ({ className }: { className?: string }) => {
             className={`h-10 w-10 bg-neutral-700 font-light text-3xl`}
           />
         </div>
-        <OtherList />
+        <div className={`flex gap-8`}>
+          <OtherList />
+          <OtherList />
+          <OtherList />
+        </div>
       </CurvedBlock>
     </>
   );
