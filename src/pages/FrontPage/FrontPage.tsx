@@ -66,7 +66,10 @@ const FrontPage = () => {
             />
           );
         })}
-        <AddNewButton onClick={addNewTask} />
+        <AddNewButton
+          onClick={addNewTask}
+          className={`fixed bottom-8 right-8`}
+        />
         <div ref={lastBlock}></div>
       </div>
     </>

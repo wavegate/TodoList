@@ -10,18 +10,19 @@ const HeadingBlock = ({ className }: { className?: string }) => {
 
   return (
     <>
-      <CurvedBlock className={twMerge(` bg-black`, className)} zIndex={1000}>
-        <div className={`h-[12vh] flex flex-col justify-between`}>
+      <CurvedBlock
+        className={twMerge(
+          `bg-black rounded-br-[40px] after:w-[40px] after:h-[40px] drop-shadow-[0px_0px_16px_rgba(0,0,0,0.6)]`,
+          className
+        )}
+        zIndex={1000}
+      >
+        <div className={`flex justify-center relative`}>
           <div
-            className="h-4 w-4 border-white border-t-4 border-l-4 -rotate-45"
+            className="h-4 w-4 border-white border-t-4 border-l-4 -rotate-45 absolute left-1 top-[8px]"
             onClick={goBack}
           ></div>
-          <h1>
-            <span className="block text-white text-4xl font-medium tracking-tighter">
-              Hello
-            </span>
-            <span className="block text-white text-5xl font-bold">Daniel</span>
-          </h1>
+          <h1 className={`text-2xl text-white font-medium`}>All Tasks</h1>
         </div>
       </CurvedBlock>
     </>

@@ -43,7 +43,10 @@ const TaskBlock = ({ className }: { className?: string }) => {
     <>
       <CurvedBlock
         zIndex={1}
-        className={twMerge(`flex flex-col flex-grow bg-white`, className)}
+        className={twMerge(
+          `flex flex-col flex-grow bg-white rounded-br-[40px] after:w-[40px] after:h-[40px]`,
+          className
+        )}
       >
         <Tab.Group>
           <Tab.List className={`flex justify-center gap-12 mb-4`}>
