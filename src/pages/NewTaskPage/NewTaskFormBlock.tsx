@@ -1,8 +1,13 @@
 import { useForm } from "react-hook-form";
+import { useLocation } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import CurvedBlock from "../../components/CurvedBlock";
 
 const NewTaskFormBlock = ({ className }: { className?: string }) => {
+  // will need to figure out a way to redirect if no taskListId provided
+  const {
+    state: { taskListId },
+  } = useLocation();
   const { register } = useForm();
 
   return (

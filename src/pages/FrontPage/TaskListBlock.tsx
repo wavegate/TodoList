@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import CurvedBlock from "../../components/CurvedBlock";
 
 const TaskListBlock = ({
@@ -5,17 +6,17 @@ const TaskListBlock = ({
   name,
   number,
   className,
-  id,
+  onClick,
 }: {
   zIndex: number;
   name: string;
   number: number;
   className?: string;
-  id: string;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }) => {
   return (
     <>
-      <CurvedBlock className={className} zIndex={zIndex} id={id}>
+      <CurvedBlock className={className} zIndex={zIndex} onClick={onClick}>
         <div
           className={`h-16 flex justify-end items-center
           `}

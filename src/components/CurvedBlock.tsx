@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CurvedBlock.module.css";
 import { twMerge } from "tailwind-merge";
@@ -6,29 +6,21 @@ import { twMerge } from "tailwind-merge";
 const CurvedBlock = ({
   zIndex,
   className,
-  id,
+  onClick,
   children,
 }: {
   zIndex?: number;
   className?: string;
-  id?: string;
+  onClick?: MouseEventHandler<HTMLDivElement>;
   children: ReactNode;
 }) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    if (id) {
-      navigate(`/read/${id}`);
-    }
-  };
-
   return (
     <>
       <div
-        onClick={handleClick}
+        onClick={onClick}
         className={twMerge(
           `relative rounded-br-[80px] ${styles.CurvedBlock} ${
-            id ? `hover:cursor-pointer` : ""
+            onClick ? `hover:cursor-pointer` : ""
           }`,
           className
         )}

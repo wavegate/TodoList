@@ -9,8 +9,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<FrontPage />}></Route>
-          <Route path="/create" element={<NewTaskPage />}></Route>
-          <Route path="/read/:id" element={<TaskListPage />}></Route>
+          <Route path="/tasks/create" element={<NewTaskPage />}></Route>
+          <Route
+            path="/tasklists/read/:taskListId"
+            element={<TaskListPage />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>

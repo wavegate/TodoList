@@ -5,11 +5,17 @@ import CurvedBlock from "../../components/CurvedBlock";
 import OtherList from "./components/OtherList";
 import styles from "./FooterBlock.module.css";
 
-const FooterBlock = ({ className }: { className?: string }) => {
+const FooterBlock = ({
+  className,
+  taskListId,
+}: {
+  className?: string;
+  taskListId: string;
+}) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/create");
+    navigate("/tasks/create", { state: { taskListId: taskListId } });
   };
 
   return (
