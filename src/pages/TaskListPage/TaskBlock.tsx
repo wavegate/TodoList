@@ -4,6 +4,7 @@ import Task from "./components/Task";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import styles from "./TaskBlock.module.css";
 
 type Task = {
   name: string;
@@ -45,15 +46,16 @@ const TaskBlock = ({ className }: { className?: string }) => {
         className={twMerge(`flex flex-col flex-grow bg-white`, className)}
       >
         <Tab.Group>
-          <Tab.List>
-            <Tab>Today</Tab>
+          <Tab.List className={`flex justify-center gap-12 mb-4`}>
+            <Tab className={`relative ${styles.Tab}`}>Today</Tab>
             <Tab>Tomorrow</Tab>
             <Tab>Week</Tab>
           </Tab.List>
+          <hr></hr>
 
           <Tab.Panels>
-            <Tab.Panel>
-              <div className="flex flex-col gap-3">
+            <Tab.Panel className={`flex justify-center`}>
+              <div className="grid grid-cols-[auto_auto] gap-3 mt-8">
                 {tasks.map((task) => {
                   return (
                     <Task

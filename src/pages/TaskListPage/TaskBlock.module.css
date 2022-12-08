@@ -1,0 +1,11 @@
+.Tab::after {
+  position: absolute;
+  content: "";
+  top: 24px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background: black;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}

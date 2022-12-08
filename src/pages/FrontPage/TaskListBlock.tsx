@@ -1,6 +1,4 @@
-import { RefObject } from "react";
 import CurvedBlock from "../../components/CurvedBlock";
-import styles from "./TaskListBlock.module.css";
 
 const TaskListBlock = ({
   zIndex,
