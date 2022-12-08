@@ -49,17 +49,18 @@ const FrontPage = () => {
           colors[(tasks.length - 1) % colors.length]
         } relative`}
       >
-        <HeroBlock padding={padding} />
+        <HeroBlock className={`${padding}`} />
         {tasks.map((task, index) => {
           return (
             <TaskListBlock
-              padding={padding}
               zIndex={999 - index}
-              color={colors[index % colors.length]}
+              className={`${colors[index % colors.length]} ${
+                index === 0 ? `${padding} pt-[43vh]` : `${padding}`
+              } ${
+                index === tasks.length - 1 ? `after:content-none pb-36` : ``
+              }`}
               name={task.name}
               number={task.number}
-              first={index === 0}
-              last={index === tasks.length - 1}
               id={task.id}
               key={task.id}
             />

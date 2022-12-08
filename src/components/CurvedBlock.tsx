@@ -1,26 +1,17 @@
 import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CurvedBlock.module.css";
+import { twMerge } from "tailwind-merge";
 
 const CurvedBlock = ({
-  padding,
-  color,
   zIndex,
-  fixed,
-  last,
-  first,
+  className,
   id,
-  flex,
   children,
 }: {
-  padding: string;
-  color: string;
   zIndex?: number;
-  fixed?: boolean;
-  first?: boolean;
-  last?: boolean;
+  className?: string;
   id?: string;
-  flex?: boolean;
   children: ReactNode;
 }) => {
   const navigate = useNavigate();
@@ -35,11 +26,11 @@ const CurvedBlock = ({
     <>
       <div
         onClick={handleClick}
-        className={`${color} rounded-br-[80px] ${styles.CurvedBlock} ${
-          fixed ? "fixed w-full" : "relative"
-        } ${last ? `after:content-none` : ``} ${
-          first ? `${padding} pt-[43vh]` : padding
-        } ${flex ? `flex-grow` : ""}`}
+        className={twMerge(
+          `relative rounded-br-[80px] ${styles.CurvedBlock}`,
+          className
+        )}
+        // } ${flex ? `flex-grow` : ""}`}
         style={{ zIndex: zIndex }}
       >
         {children}

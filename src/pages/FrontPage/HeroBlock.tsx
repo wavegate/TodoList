@@ -1,9 +1,12 @@
 import CurvedBlock from "../../components/CurvedBlock";
 
-const HeroBlock = ({ padding }: { padding: string }) => {
+const HeroBlock = ({ className }: { className: string }) => {
   return (
     <>
-      <CurvedBlock padding={padding} color="bg-black" zIndex={1000} fixed>
+      <CurvedBlock
+        zIndex={1000}
+        className={`fixed w-full bg-black ${className}`}
+      >
         <div className={`h-[33vh] flex flex-col justify-between`}>
           <div className="flex flex-col gap-1">
             <div className="w-8 h-1 bg-white" />

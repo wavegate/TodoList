@@ -3,6 +3,7 @@ import CurvedBlock from "../../components/CurvedBlock";
 import Task from "./components/Task";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 type Task = {
   name: string;
@@ -11,7 +12,7 @@ type Task = {
   id: string;
 };
 
-const TodosBlock = ({ padding }: { padding: string }) => {
+const TaskBlock = ({ className }: { className?: string }) => {
   const [tasks, setTasks] = useState<Task[]>([
     {
       name: "Cloture proposition Daniel",
@@ -39,7 +40,10 @@ const TodosBlock = ({ padding }: { padding: string }) => {
 
   return (
     <>
-      <CurvedBlock padding={padding} color="bg-white" zIndex={1} flex>
+      <CurvedBlock
+        zIndex={1}
+        className={twMerge(`flex flex-col flex-grow bg-white`, className)}
+      >
         <Tab.Group>
           <Tab.List>
             <Tab>Today</Tab>
@@ -72,4 +76,4 @@ const TodosBlock = ({ padding }: { padding: string }) => {
   );
 };
 
-export default TodosBlock;
+export default TaskBlock;
