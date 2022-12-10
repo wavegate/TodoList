@@ -5,12 +5,11 @@ import { faker } from "@faker-js/faker";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-
-type Task = {
-  name: string;
-  number: number;
-  id: string;
-};
+import { useDispatch, useSelector } from "react-redux";
+import {
+  createTaskList,
+  selectAllTaskLists,
+} from "../../features/taskLists/taskListsReducer";
 
 const FrontPage = () => {
   const lastBlock = useRef<HTMLDivElement>(null);
@@ -21,21 +20,13 @@ const FrontPage = () => {
 
   const navigate = useNavigate();
 
-  const [taskLists, setTaskLists] = useState<Task[]>([
-    { name: "Gym", number: 8, id: uuidv4() },
-    { name: "Work", number: 22, id: uuidv4() },
-    { name: "Home", number: 13, id: uuidv4() },
-  ]);
+  const taskLists = useSelector(selectAllTaskLists);
+
+  const dispatch = useDispatch();
 
   const addNewTask = () => {
-    setTaskLists([
-      ...taskLists,
-      {
-        name: faker.random.words(2),
-        number: faker.datatype.number(50),
-        id: uuidv4(),
-      },
-    ]);
+    const name = faker.random.words(2);
+    dispatch(createTaskList(name));
   };
 
   useEffect(() => {
@@ -67,7 +58,7 @@ const FrontPage = () => {
                 index === taskLists.length - 1 ? `after:content-none pb-36` : ``
               }`}
               name={taskList.name}
-              number={taskList.number}
+              number={taskList.tasks.length}
               onClick={() => goToTaskList(taskList.id)}
               key={taskList.id}
             />

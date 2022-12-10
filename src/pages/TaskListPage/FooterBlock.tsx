@@ -21,7 +21,10 @@ const FooterBlock = ({
   return (
     <>
       <CurvedBlock
-        className={twMerge(`after:content-none rounded-br-[60px]`, className)}
+        className={twMerge(
+          `after:content-none rounded-br-[60px] fixed`,
+          className
+        )}
       >
         <div className={`text-white flex justify-between items-center mb-6`}>
           <div className={`text-2xl font-medium`}>My List</div>
@@ -30,9 +33,7 @@ const FooterBlock = ({
             className={`h-10 w-10 bg-neutral-700 font-light text-3xl`}
           />
         </div>
-        <div
-          className={`flex gap-8 overflow-x-scroll pb-8 ${styles.OtherLists}`}
-        >
+        <div className={`flex gap-8 overflow-x-auto pb-8 ${styles.OtherLists}`}>
           <OtherList />
           <OtherList />
           <OtherList />
