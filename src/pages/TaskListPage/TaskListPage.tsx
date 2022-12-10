@@ -10,8 +10,13 @@ const TaskListPage = () => {
 
   return (
     <>
-      <div className={`min-h-screen flex flex-col bg-black`}>
-        <HeadingBlock className={`${padding}`} title="All tasks" icon="back" />
+      <div className={`h-screen flex flex-col bg-black`}>
+        <HeadingBlock
+          className={`${padding}`}
+          title="All tasks"
+          icon="back"
+          iconDestination="/"
+        />
         <TaskBlock className={`${padding}`} />
         {/* Will need to handle non-existing taskListId later */}
         <FooterBlock className={`${padding}`} taskListId={taskListId || ""} />

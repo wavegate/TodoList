@@ -8,14 +8,17 @@ const HeadingBlock = ({
   className,
   title,
   icon,
+  iconDestination,
 }: {
   className?: string;
   title: string;
   icon: Icon;
+  iconDestination: string;
 }) => {
   const navigate = useNavigate();
+
   const goBack = () => {
-    navigate(-1);
+    navigate(iconDestination);
   };
 
   return (

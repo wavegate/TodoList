@@ -26,7 +26,7 @@ const FrontPage = () => {
 
   const addNewTask = () => {
     const name = faker.random.words(2);
-    dispatch(createTaskList(name));
+    dispatch(createTaskList({ name }));
   };
 
   useEffect(() => {

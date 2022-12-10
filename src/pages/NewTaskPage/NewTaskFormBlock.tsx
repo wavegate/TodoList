@@ -1,14 +1,32 @@
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import CurvedBlock from "../../components/CurvedBlock";
+import { createTask } from "../../features/taskLists/taskListsReducer";
+
+type FormData = {
+  description: string;
+  time: string;
+};
 
 const NewTaskFormBlock = ({ className }: { className?: string }) => {
   // will need to figure out a way to redirect if no taskListId provided
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
   const {
     state: { taskListId },
   } = useLocation();
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm<FormData>();
+
+  const submitData = (data: FormData) => {
+    const { description, time } = data;
+    dispatch(createTask({ taskListId, description, time }));
+    navigate(`/tasklists/read/${taskListId}`);
+  };
 
   return (
     <>
@@ -18,7 +36,10 @@ const NewTaskFormBlock = ({ className }: { className?: string }) => {
           className
         )}
       >
-        <form className={`flex flex-col gap-4`}>
+        <form
+          className={`flex flex-col gap-4`}
+          onSubmit={handleSubmit(submitData)}
+        >
           <label htmlFor="description" className={``}>
             What are you planning?
           </label>
@@ -27,7 +48,7 @@ const NewTaskFormBlock = ({ className }: { className?: string }) => {
             className={`bg-black border-b border-white`}
           />
           <div className={`flex gap-4 mt-8 items-center`}>
-            <label htmlFor="datetime" className={`flex-1`}>
+            <label htmlFor="time" className={`flex-1`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -46,11 +67,11 @@ const NewTaskFormBlock = ({ className }: { className?: string }) => {
             <input
               type="datetime-local"
               style={{ colorScheme: "dark" }}
-              {...register("datetime")}
+              {...register("time")}
               className={`flex-[90%] bg-black`}
             />
           </div>
-          <div className={`flex gap-4 items-center`}>
+          {/* <div className={`flex gap-4 items-center`}>
             <label htmlFor="description" className={`flex-1`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +94,7 @@ const NewTaskFormBlock = ({ className }: { className?: string }) => {
               placeholder="Add note"
               className={`flex-[90%] bg-black`}
             />
-          </div>
+          </div> */}
           <button
             className={`px-12 py-4 bg-purple-800 rounded-3xl w-fit self-end`}
           >

@@ -22,7 +22,7 @@ const FooterBlock = ({
     <>
       <CurvedBlock
         className={twMerge(
-          `after:content-none rounded-br-[60px] fixed`,
+          `after:content-none rounded-br-[60px] bg-black`,
           className
         )}
       >
