@@ -1,6 +1,6 @@
 # Frontend Todolist
 
-This is a frontend solution to the [Todo list design from Behance](https://www.behance.net/gallery/113320609/ToDo-List-%28Daily-UI-Challenge%29?tracking_source=search_projects%7Ctodo+list).
+This is a frontend solution to a todolist design.
 
 ## Table of contents
 
@@ -16,8 +16,6 @@ This is a frontend solution to the [Todo list design from Behance](https://www.b
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -29,15 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./screenshot.png)
 
 ### Links
 
@@ -46,12 +36,14 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ## My process
 
+- This was the first part of a series where I build out designs I find and try to implement best practices. This is for practice purposes. At this point, I was preparing for my first frontend developer position and was watching a lot of React YouTubers such as Jack Herrington and Web Dev Junkie.
+
 ### Built with
 
-- Semantic HTML5 markup
-- TailwindCSS and HeadlessUI
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
+- TailwindCSS
+- React
+- Redux
+- React hook form
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
@@ -61,7 +53,18 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Continued development
 
-- **Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- This project is a continuing playground for me to implement and refactor my code for best practices. The following are things I want to add in order to prepare myself as a fullstack web engineer. I will add more to it as I learn more about what I do not yet know.
+- Semantic HTML5 markup
+- Mobile-first workflow
+- SEO
+- Build out backend with tRPC and/or React query
+- Testing
+- CI/CD eg. with GitHub actions
+- AWS
+- Next.js
+- Prisma
+- Dark mode
+- Cross-browser compatibility
 
 ### Useful resources
 

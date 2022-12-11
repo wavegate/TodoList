@@ -59,8 +59,8 @@ const FrontPage = () => {
               }`}
               name={taskList.name}
               number={taskList.tasks.length}
-              onClick={() => goToTaskList(taskList.id)}
-              key={taskList.id}
+              onClick={() => goToTaskList(taskList.taskListId)}
+              key={taskList.taskListId}
             />
           );
         })}

@@ -2,24 +2,24 @@ import { v4 as uuid } from "uuid";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../redux/store";
 
-type Task = {
+export type Task = {
   description: string;
   time: string;
-  id: string;
+  taskId: string;
   completed: boolean;
 };
 
-type TaskList = {
-  id: string;
+export type TaskList = {
+  taskListId: string;
   name: string;
   tasks: Task[];
 };
 
 const initialState: { taskLists: TaskList[] } = {
   taskLists: [
-    { id: uuid(), name: "Gym", tasks: [] },
-    { id: uuid(), name: "Work", tasks: [] },
-    { id: uuid(), name: "Home", tasks: [] },
+    { taskListId: uuid(), name: "Gym", tasks: [] },
+    { taskListId: uuid(), name: "Work", tasks: [] },
+    { taskListId: uuid(), name: "Home", tasks: [] },
   ],
 };
 
@@ -34,7 +34,7 @@ const taskListsSlice = createSlice({
       prepare({ name }: { name: string }) {
         return {
           payload: {
-            id: uuid(),
+            taskListId: uuid(),
             name,
             tasks: [],
           },
@@ -44,7 +44,7 @@ const taskListsSlice = createSlice({
     createTask: {
       reducer(state, action: PayloadAction<Task & { taskListId: string }>) {
         state.taskLists
-          .find((taskList) => taskList.id === action.payload.taskListId)
+          .find((taskList) => taskList.taskListId === action.payload.taskListId)
           ?.tasks.push(action.payload);
       },
       prepare({
@@ -59,7 +59,7 @@ const taskListsSlice = createSlice({
         return {
           payload: {
             taskListId,
-            id: uuid(),
+            taskId: uuid(),
             description,
             time,
             completed: false,
@@ -67,12 +67,22 @@ const taskListsSlice = createSlice({
         };
       },
     },
+    toggleTaskCompletion: (state, action) => {
+      const { taskId, taskListId } = action.payload;
+      const task = state.taskLists
+        .find((taskList) => taskList.taskListId === taskListId)
+        ?.tasks.find((task) => task.taskId === taskId);
+      if (task) {
+        task.completed = !task.completed;
+      }
+    },
   },
 });
 
 export const selectAllTaskLists = (state: RootState) =>
   state.taskLists.taskLists;
 
-export const { createTask, createTaskList } = taskListsSlice.actions;
+export const { createTask, createTaskList, toggleTaskCompletion } =
+  taskListsSlice.actions;
 
 export default taskListsSlice.reducer;

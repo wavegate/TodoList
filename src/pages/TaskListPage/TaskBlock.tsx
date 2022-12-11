@@ -4,17 +4,22 @@ import Task from "./components/Task";
 import { twMerge } from "tailwind-merge";
 import styles from "./TaskBlock.module.css";
 import { RootState } from "../../redux/store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { toggleTaskCompletion } from "../../features/taskLists/taskListsReducer";
 
 const TaskBlock = ({ className }: { className?: string }) => {
   const { taskListId } = useParams();
   const taskList = useSelector((state: RootState) =>
-    state.taskLists.taskLists.find((taskList) => taskList.id === taskListId)
+    state.taskLists.taskLists.find(
+      (taskList) => taskList.taskListId === taskListId
+    )
   );
 
-  const completeTask = (id: string) => {
-    // complete task
+  const dispatch = useDispatch();
+
+  const completeTask = (taskId: string) => {
+    dispatch(toggleTaskCompletion({ taskId, taskListId }));
   };
 
   return (
@@ -45,8 +50,8 @@ const TaskBlock = ({ className }: { className?: string }) => {
                           checked={task.completed}
                           name={task.description}
                           time={task.time}
-                          completeTask={() => completeTask(task.id)}
-                          key={task.id}
+                          completeTask={() => completeTask(task.taskId)}
+                          key={task.taskId}
                         />
                       );
                     })}
